@@ -19,8 +19,45 @@ export default function Login( { navigation }) {
 
     return(
         <View style={styles.container}>
-            <Image source={rnsImage} style={styles.rnsImage}/>
+            
+
             <View style={styles.whiteSheet}></View>
+                <SafeAreaView styles={styles.form}>
+                <Image source={rnsImage} style={styles.rnsImage}/>
+                    <Text style={styles.supertitle}>PracticeHealthNS </Text>
+                    <Text style={styles.title}>Login </Text>
+                    <TextInput
+                    style = {styles.input}
+                    placeholder="Enter email"
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                    textContentType='emailAddress'
+                    autofocus={true}
+                    value={email}
+                    onChangeText={(text) => setEmail(text)}
+                    />
+
+                    <TextInput
+                    style = {styles.input}
+                    placeholder="Enter password"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    secureTextEntry={true}
+                    textContentType='password'
+                    value={password}
+                    onChangeText={(text) => setPassword(text)}
+                    />
+                    <TouchableOpacity style={styles.button} onPress={onHandleLogin}>
+                        <Text style={{fontWeight: 'bold', color: 'white', fontSize:16}}>Login</Text>
+                    </TouchableOpacity>
+                    <View style={{marginTop:20, flexDirection: 'row', alignItems: 'center', alignSelf: 'center'}}>
+                    <Text style={{color: 'gray', fontWeight: '600', fontSize: 12}}>Don't have an account? </Text>
+                    
+                    <TouchableOpacity  onPress={() => navigation.navigate("Signup")}>
+                        <Text style={{ color: `#2f4f4f`, fontWeight: '600', fontSize:12}}> Sign Up</Text>
+                    </TouchableOpacity>
+                    </View>
+                </SafeAreaView>
         </View>
     )
 }
@@ -33,40 +70,60 @@ const styles = StyleSheet.create({
         backgroundColor: '#808080',
 
     },
-    title:{
-        fontSize: 36,
+    supertitle:{
+        fontSize: 30,
         fontWeight: 'bold',
         color: 'purple',
         padding: 12
     },
+    title:{
+        fontSize: 20,
+        fontWeight: 'bold',
+        color:`#2f4f4f`,
+        padding: 20,
+        
+    },
     rnsImage:{
         width: '100%',
-        height: 200,
-        position: 'absolute',
-        top: 0,
-        resizeMode: 'cover',
-        backgroundColor:'#808080'
+         height: 200,
+        // position: 'absolute',
+        // top: 0,
+        // resizeMode: 'cover',
+        // backgroundColor:'#808080'
 
     },
     whiteSheet: {
         width: '100%', 
         height: '75%',
         position: 'absolute',
-        bottom: 0,
-        backgroundColor: '#808080',
+        bottom: 10,
+        backgroundColor: 'white',
         borderTopLeftRadius: 60,
     },
     form:{
         flex: 1,
         justifyContent: 'center',
         marginHorizontal: 30,
+        marginTop: 50
     }, 
     button:{
-        backgroundColor: `#00bfff`,
+        backgroundColor: `#2f4f4f`,
         height: 58,
         borderRadius: 10,
+        width:'85%',
+        marginLeft: 20,
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 40,
-    }
+    },
+    input: {
+        borderColor: "gray",
+        width: "90%",
+        borderWidth: 1,
+        borderRadius: 10,
+        padding: 20,
+        marginBottom:20,
+        marginLeft:20
+        
+      },
 })

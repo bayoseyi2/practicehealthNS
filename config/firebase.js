@@ -13,6 +13,8 @@ const firebaseConfig = {
     databaseURL: Constants.manifest.extra.databaseURL
 };
 
+
+
 initializeApp(firebaseConfig)
 
 export const auth = getAuth();

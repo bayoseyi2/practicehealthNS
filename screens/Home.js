@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
-import colors from '.../colors';
+import colors from '../screens/colors';
 import { Entypo } from "@expo/vector-icons";
 
 const rnsImage = require ('../assets/rnslogo1.png');
@@ -27,7 +27,7 @@ const Home = () => {
         <View style={styles.container}>
         <TouchableOpacity
           onPress={() => navigation.navigate("Chat")} style={styles.chatButton}>
-          <Entypo name="chat" size={24} color={colors.lightGray}/>
+          <Entypo name="chat" size={15} color={colors.lightGray}/>
         </TouchableOpacity>
         </View> 
     );
@@ -38,7 +38,8 @@ export default Home;
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#808080',
+        // backgroundColor: '#808080',
+        backgroundColor: 'orange',
         justifyContent: 'flex-end',
         alignItems:'flex-end'
         

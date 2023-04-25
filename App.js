@@ -11,6 +11,12 @@ import Login from './screens/Login';
 import Signup from './screens/Signup';
 import Home from './screens/Home';
 
+
+import {createAppContainer } from 'react-navigation';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
+import {createStackNavigator} from 'react-navigation-stack';
+import { Container, Content, Header, Body } from 'native-base';
+
 const Stack = createStackNavigator();
 const AuthenticatedUserContext = createContext({});
 
@@ -37,7 +43,7 @@ function ChatStack () {
 
 function AuthStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator defaultScreenOptions={Login} screenOptions={{headerShown: false}}>
         <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="Signup" component={Signup}/>
       

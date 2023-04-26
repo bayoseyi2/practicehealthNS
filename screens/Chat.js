@@ -44,7 +44,20 @@ export default function Chat() {
         });
     }, [navigation]);
 
+
+    //convertDate(doc.data().time.toDate())
+
+   
+
+
+
+
     useLayoutEffect(() =>{
+        const convertDate = (date) => {
+            // whatever formatting you want to do can be done here
+            var d = date.toString()
+            return d.substr(0, 21);
+        }
         const collectionRef = collection(database, 'chats');
         const q = query(collectionRef, orderBy('createdAt', 'desc'));
         const unsubscribe = onSnapshot(q, snapshot =>{
@@ -52,7 +65,8 @@ export default function Chat() {
             setMessages(
                 snapshot.docs.map(doc =>({
                     _id: doc.id,
-                    createdAt: doc.data().createdAt,
+                    //createdAt: doc.data().createdAt, //new Date(this.props.time.seconds * 1000)
+                    createdAt:convertDate(doc.data().createdAt.toDate()),
                     text: doc.data().text,
                     user: doc.data().user
                 }))
